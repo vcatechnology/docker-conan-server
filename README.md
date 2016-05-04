@@ -14,7 +14,7 @@ docker run \
     dkruger/conan-server:latest
 ```
 
-The configure the server by editting the .conan_server/server.conf file.
-The `host_name` and public_port parameters are of particular importance
-and must match the name of the docker host and the public port exposed
-for the container.
+The configure the server by editting the `.conan_server/server.conf`
+file. The `host_name` and `public_port` parameters are of particular
+importance and must match the name of the docker host and the public
+port exposed for the container.
