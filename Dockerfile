@@ -7,4 +7,4 @@ RUN useradd -r conan -d /var/lib/conan -m
 
 # Run uwsgi listening on port 8080
 EXPOSE 9300
-CMD ["su", "-c", "/usr/local/bin/conan_server conan"]
+CMD ["su", "-c", "/usr/local/bin/conan_server", "conan"]
