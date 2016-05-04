@@ -3,9 +3,8 @@ MAINTAINER David Kruger <david@viavisolutions.com>
 
 # Install dependencies so they get cached with the image
 RUN pip install --no-cache-dir conan
-RUN mkdir /var/lib/conan
+RUN useradd -r conan -d /var/lib/conan -m
 
 # Run uwsgi listening on port 8080
 EXPOSE 9300
-ENV HOME /var/lib/conan
-CMD ["/usr/local/bin/conan_server"]
+CMD ["su", "-c", "/usr/local/bin/conan_server conan"]
