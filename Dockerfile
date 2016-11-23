@@ -1,10 +1,13 @@
-FROM python:2.7
-MAINTAINER David Kruger <david@viavisolutions.com>
+FROM python:alpine
+MAINTAINER Christian Günther <cguenther.tu.chemnitz@gmail.com>
 
 # Install dependencies so they get cached with the image
-RUN pip install --no-cache-dir conan==0.9.2
-RUN useradd -r conan -d /var/lib/conan -m
+VOLUME /var/lib/conan
+RUN pip install --no-cache-dir conan
+RUN adduser -S conan -h /var/lib/conan -s /bin/sh
 
-# Run uwsgi listening on port 8080
+# Run uwsgi listening on port 9300
 EXPOSE 9300
-CMD ["su", "-c", "/usr/local/bin/conan_server", "conan"]
+
+COPY ./entrypoint.sh /entrypoint.sh
+CMD ["/bin/sh", "/entrypoint.sh"]
