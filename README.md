@@ -18,3 +18,17 @@ The configure the server by editting the `.conan_server/server.conf`
 file. The `host_name` and `public_port` parameters are of particular
 importance and must match the name of the docker host and the public
 port exposed for the container.
+
+## Example docker-compose.yml file
+
+```
+version: '2' 
+services:
+  conan:
+    image: cguenther/conan-server
+    container_name: conan
+    volumes:
+      - ./conan:/var/lib/conan
+    ports:
+      - 9300:9300
+```
