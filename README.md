@@ -18,6 +18,7 @@ The configure the server by editting the `.conan_server/server.conf`
 file. The `host_name` and `public_port` parameters are of particular
 importance and must match the name of the docker host and the public
 port exposed for the container.
+For more information of the server.conf, see the http://conanio.readthedocs.io/en/latest/server.html#server-configuration.
 
 ## Example docker-compose.yml file
 
